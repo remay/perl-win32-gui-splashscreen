@@ -1,0 +1,10 @@
+Revision history for Win32-GUI-HyperLink
+
+0.01     17 July 2005
+         Released on CPAN, and at http://www.robmay.me.uk/win32gui/
+         as PPM
+
+ - Inital public release
+
+----------------------------------------------------------------------
+$Id: Changes,v 1.1.1.1 2005/07/17 21:16:32 Robert May Exp $

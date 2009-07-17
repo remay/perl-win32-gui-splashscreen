@@ -1,0 +1,11 @@
+# http://module-build.sourceforge.net/META-spec.html
+#XXXXXXX This is a prototype!!!  It will change in the future!!! XXXXX#
+name:         Win32-GUI-SplashScreen
+version:      0.01
+version_from: lib\Win32\GUI\SplashScreen.pm
+installdirs:  site
+requires:
+    Win32::GUI:                    1.02
+
+distribution_type: module
+generated_by: ExtUtils::MakeMaker version 6.17

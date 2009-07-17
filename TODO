@@ -1,0 +1,16 @@
+TODO:
+ - documentation
+ - Would be good to get paint events from the bitmap label and re-paint the text
+ - make the "default" splashscreen nicer
+ - add version to non standard splash?
+ - make the internally generated splash screen prettier
+ - make the functions for internally generated splash autoload, so as not to bloat
+   memory usage when there is a user supplied splash screen
+ - export ShowSplash (or some such function)?
+ - allow registration of a window that must be visible before the splash is taken down
+
+ - get makefile to update version in the readme
+
+
+----------------------------------------------------------------------
+$Id: TODO,v 1.1.1.1 2005/07/17 21:16:32 Robert May Exp $
