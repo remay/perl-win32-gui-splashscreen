@@ -1,5 +1,5 @@
 package Win32::GUI::SplashScreen;
-# $Id: SplashScreen.pm,v 1.1.1.1 2005/07/17 21:16:32 Robert May Exp $
+# $Id: SplashScreen.pm,v 1.2 2005/07/17 23:33:37 Robert May Exp $
 
 # Copyright 2005 Robert May, All Rights Reserved.
 #
@@ -21,7 +21,8 @@ Win32::GUI::SplashScreen - Win32::GUI SplashScreen support
 
 =cut
 
-our $VERSION = "0.01";
+our $VERSION = "0.02";
+$VERSION = eval $VERSION;  # See perldoc perlmodstyle
 our $DEBUG=0;  # set to a true value to see console debugging info
 
 our %INFO;     # package global information
@@ -284,7 +285,7 @@ sub _LoadSplash
 	# places to try:
 	my @dirs;
 	# directory of perl script
-	my $tmp = "./$0"; $tmp =~ s/[\/\\][^\/\\]*$//;
+	my $tmp = $0; $tmp =~ s/[^\/\\]*$//;
 	push @dirs, $tmp;
 	# cwd
 	push @dirs, ".";
@@ -294,6 +295,7 @@ sub _LoadSplash
 
 	# try as a bitmap
 	for my $dir (@dirs) {
+		next unless -d $dir;
 		print "Attempting to load splash image from $dir/$base.bmp\n" if $DEBUG;
 		$splashimage = Win32::GUI::Bitmap->new("$dir/$base.bmp");
 		return $splashimage if $splashimage;
@@ -307,6 +309,7 @@ sub _LoadSplash
 		push @exts, ".jpeg";
 
 		for my $dir (@dirs) {
+			next unless -d $dir;
 			for my $ext (@exts) {
 				print "Attempting to load splash image from $dir/$base$ext\n" if $DEBUG;
 				my $diSplash = Win32::GUI::DIBitmap->newFromFile("$dir/$base$ext");

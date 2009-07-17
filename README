@@ -3,7 +3,7 @@ Win32-GUI-SplashScreen
 
 VERSION
 
-This is Win32::GUI::SplashScreen v0.01
+This is Win32::GUI::SplashScreen v0.02
 
 INTRODUCTION
 
@@ -49,4 +49,4 @@ This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself.
 
 ----------------------------------------------------------------------
-$Id: README,v 1.1.1.1 2005/07/17 21:16:32 Robert May Exp $
+$Id: README,v 1.2 2005/07/17 23:33:37 Robert May Exp $

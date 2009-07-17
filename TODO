@@ -8,9 +8,11 @@ TODO:
    memory usage when there is a user supplied splash screen
  - export ShowSplash (or some such function)?
  - allow registration of a window that must be visible before the splash is taken down
+ - add link to docs for DIBitmap
+ - make DIBitmap a dependancy once it makes it to ActiveState
 
  - get makefile to update version in the readme
 
 
 ----------------------------------------------------------------------
-$Id: TODO,v 1.1.1.1 2005/07/17 21:16:32 Robert May Exp $
+$Id: TODO,v 1.2 2005/07/17 23:33:37 Robert May Exp $
