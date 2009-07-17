@@ -1,6 +1,5 @@
 #!perl -wT
-# Check the POD covers all method calls:  ignore constants with form ABC_DEF()
-# $Id: 99.pod-coverage.t,v 1.1.1.1 2005/07/17 21:16:32 Robert May Exp $
+# Check the POD covers all method calls
 use strict;
 use warnings;
 

@@ -1,7 +1,5 @@
 package Win32::GUI::SplashScreen;
-# $Id: SplashScreen.pm,v 1.2 2005/07/17 23:33:37 Robert May Exp $
-
-# Copyright 2005 Robert May, All Rights Reserved.
+# Copyright 2005..2009 Robert May, All Rights Reserved.
 #
 # This program is free software; you can redistribute it and/or modify it
 # under the same terms as Perl itself.
@@ -10,7 +8,7 @@ use strict;
 use warnings;
 use warnings::register;
 
-use Win32::GUI;
+use Win32::GUI 1.02 qw(WS_CHILD WS_POPUP WS_EX_TOPMOST WS_EX_TOOLWINDOW);
 use Win32::GUI::BitmapInline ();
 
 BEGIN { eval "use Win32::GUI::DIBitmap ()"; };
@@ -21,9 +19,8 @@ Win32::GUI::SplashScreen - Win32::GUI SplashScreen support
 
 =cut
 
-our $VERSION = "0.02";
-$VERSION = eval $VERSION;  # See perldoc perlmodstyle
-our $DEBUG=0;  # set to a true value to see console debugging info
+our $VERSION = 0.03;
+our $DEBUG=1;  # set to a true value to see console debugging info
 
 our %INFO;     # package global information
 
@@ -234,7 +231,7 @@ sub _Timer
 
 ######################################################################
 # Private _PaintInternal()
-# Paints text and ions onto the blank label
+# Paints text and icons onto the blank label
 ######################################################################
 
 sub _PaintInternal
@@ -248,9 +245,9 @@ sub _PaintInternal
 	$DC->TextOut(10, 20, $INFO{info});
 	$DC->TextOut(20, 40, $INFO{copyright});
 	$DC->TextOut(10, 80, "Using Win32::GUI::Splashscreen v$VERSION");
-	$DC->TextOut(20,100, "(c) 2005 Robert May");
+	$DC->TextOut(20,100, "(c) 2005..2009 Robert May");
 	$DC->TextOut(10,120, "Using Win32::GUI v$Win32::GUI::VERSION");
-	$DC->TextOut(20,140, "(c) 1997..2005 Aldo Calpini");
+	$DC->TextOut(20,140, "(c) 1997..2005 Aldo Calpini; 2005..2009 Robert May");
 
 	my $bitmap = _Win32GUIBitmap();
 
@@ -266,7 +263,7 @@ sub _PaintInternal
 # Private _LoadSplash()
 # Attempts to load a user provided image from for the splash screeen.
 # First attempts to load the image as a win32 resource from the
-# running executable, then tries hte filesystem.  If available uses
+# running executable, then tries the filesystem.  If available uses
 # Win32::GUI::DIBitmap to enable JPEG support.
 # Returns a Win32::GUI::Bitmap oject on success or undef on failure.
 ######################################################################
@@ -274,6 +271,8 @@ sub _PaintInternal
 sub _LoadSplash
 {
 	my $base = shift;
+
+    return undef unless defined $base;
 
 	# try to load the splash bitmap as resource from the exe that is running
 	# this will also get the image if it has a .bmp extension
@@ -389,9 +388,7 @@ sub _Win32GUIBitmap
 
 =head1 AUTHOR
 
-Robert May, C<< <rmay@popeslane.clara.co.uk> >>
-
-Additional information may be available at L<http://www.robmay.me.uk/win32gui/>.
+Robert May, C<< <robertmay@cpan.org> >>
 
 =head1 REQUIRES
 
@@ -405,10 +402,10 @@ L<Win32::GUI::DIBitmap|Win32::GUI::DIBitmap> for JPEG support.
 	use strict;
 	use warnings;
 
-	use Win32::GUI;
+	use Win32::GUI 1.02 ();
 	use Win32::GUI::SplashScreen;
 
-	# Create and diaplay the splash screen
+	# Create and display the splash screen
 	# Uses default filename of 'SPLASH', and searches for
 	# SPLASH.bmp and SPLASH.jp[e]g
 	Win32::GUI::SplashScreen::Show();
@@ -437,7 +434,7 @@ to the PAR distributable with the -a option,
 
 	pp -a SPLASHFILE.bmp -o xxx.exe xxx.pl
 
-Where F<SPLASHFILE.bmp> is the name of your
+where F<SPLASHFILE.bmp> is the name of your
 splash screen image and Win32::GUI::SplashScreen
 will find it.
 
@@ -452,7 +449,7 @@ L<http://sourceforge.net/projects/perl-win32-gui/>
 
 =head1 COPYRIGHT & LICENSE
 
-Copyright 2005 Robert May, All Rights Reserved.
+Copyright 2005..2009 Robert May, All Rights Reserved.
 
 This program is free software; you can redistribute it and/or modify it
 under the same terms as Perl itself.

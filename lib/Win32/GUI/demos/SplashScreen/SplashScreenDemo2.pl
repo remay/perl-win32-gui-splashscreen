@@ -1,8 +1,6 @@
 #!perl -w
 
-# $id$
-
-# Copyright 2005 Robert May, All Rights Reserved.
+# Copyright 2005..2009 Robert May, All Rights Reserved.
 #
 # This program is free software; you can redistribute it and/or modify it
 # under the same terms as Perl itself.
@@ -10,15 +8,16 @@
 use strict;
 use warnings;
 
-use Win32::GUI;
-use Win32::GUI::SplashScreen;
+use Win32::GUI 1.02 ();
+use Win32::GUI::SplashScreen ();
 
 # Create and diaplay the splash screen
 Win32::GUI::SplashScreen::Show(
-	-file      => "none",  # set a name that doe not exist to force internal splash screen
+	-file      => undef,  # explicitly set -file to undef to stop it looking fo default
+                          # SPLASH.bmp
 	-mintime   => 5,
 	-info      => "SplashScreen Demo 2 v1.0",
-	-copyright => "(c) 2005 Robert May",
+	-copyright => "(c) 2005..2009 Robert May",
 );
 
 # Create the main window

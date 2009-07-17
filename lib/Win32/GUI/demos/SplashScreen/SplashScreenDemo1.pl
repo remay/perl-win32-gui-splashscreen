@@ -1,8 +1,6 @@
 #!perl -w
 
-# $id$
-
-# Copyright 2005 Robert May, All Rights Reserved.
+# Copyright 2005..2009 Robert May, All Rights Reserved.
 #
 # This program is free software; you can redistribute it and/or modify it
 # under the same terms as Perl itself.
@@ -10,7 +8,7 @@
 use strict;
 use warnings;
 
-use Win32::GUI;
+use Win32::GUI 1.02 ();
 use Win32::GUI::SplashScreen;
 
 # Create and diaplay the splash screen

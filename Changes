@@ -1,5 +1,12 @@
 Revision history for Win32-GUI-HyperLink
 
+0.03     17 July 2009
+         Released on CPAN
+
+ - Update build process (including failing build under cygwin)
+ - Fix constants warnings from Win32::GUI
+ - General code tidy up and typo corrections
+
 0.02     17 July 2005
          Released on CPAN, and at http://www.robmay.me.uk/win32gui/
          as PPM
